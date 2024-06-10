@@ -15,8 +15,8 @@ class SplashPage extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+              begin: const Alignment(.2, -.98),
+              end: const Alignment(-.2, .98),
               colors: [
                 ColorsManager.kPrimaryColor,
                 ColorsManager.kSecondColor,
