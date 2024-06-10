@@ -10,19 +10,22 @@ class SectionTwoSplash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      clipBehavior: Clip.none,
       children: [
-        Image.asset(
-          'assets/images/guy_listening_music.png',
-          width: double.infinity,
-          //fit: BoxFit.cover,
+        SizedBox(
+          height: 330,
+          child: Image.asset(
+            'assets/images/guy_listening_music.png',
+            width: double.infinity,
+            fit: BoxFit.fill,
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomSplashButton(
-              onTap: () {},
-            ),
-          ],
+        Positioned(
+          top: -15,
+          left: 80,
+          child: CustomSplashButton(
+            onTap: () {},
+          ),
         ),
       ],
     );
