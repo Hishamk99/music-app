@@ -10,8 +10,8 @@ class CustomSplashButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 60,
-        width: 171,
+        height: 50,
+        width: 165,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           gradient: const LinearGradient(
@@ -26,7 +26,7 @@ class CustomSplashButton extends StatelessWidget {
         child: const Center(
           child: Text(
             'Get Started',
-            style: Styles.styleS_18W500,
+            style: Styles.styles_18W500,
           ),
         ),
       ),
