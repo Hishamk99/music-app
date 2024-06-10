@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'custom_splash_button.dart';
+
 
 class SectionTwoSplash extends StatelessWidget {
   const SectionTwoSplash({super.key});
 
   @override
   Widget build(BuildContext context) {
-    
     return Stack(
       clipBehavior: Clip.none,
       children: [
