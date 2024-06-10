@@ -5,4 +5,6 @@ class ColorsManager {
   static Color kSecondColor = const Color(0xff261F5C).withOpacity(.54);
   static Color kThirdColor = const Color(0xff411F5C);
   static Color kFourthColor = const Color(0xff3097C5).withOpacity(.04);
+  static const kWhiteColor = Colors.white;
+  static const kButtonColor = Color(0xff3097c5);
 }
