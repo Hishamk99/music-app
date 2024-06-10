@@ -28,7 +28,7 @@ class SplashPage extends StatelessWidget {
               children: [
                 SizedBox(height: 60),
                 SectionOneSplash(),
-                SizedBox(height: 40),
+                SizedBox(height: 50),
                 SectionTwoSplash(),
               ],
             ),
@@ -38,5 +38,3 @@ class SplashPage extends StatelessWidget {
     );
   }
 }
-
-
