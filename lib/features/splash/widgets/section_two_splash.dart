@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'custom_splash_button.dart';
 
@@ -7,15 +9,20 @@ class SectionTwoSplash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        CustomSplashButton(
-          onTap: () {},
-        ),
         Image.asset(
           'assets/images/guy_listening_music.png',
           width: double.infinity,
           //fit: BoxFit.cover,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomSplashButton(
+              onTap: () {},
+            ),
+          ],
         ),
       ],
     );
