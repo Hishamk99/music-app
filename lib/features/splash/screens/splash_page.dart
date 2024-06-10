@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/core/resources/colors.dart';
+import 'package:music_app/core/utils/styles.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -7,8 +9,45 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(),
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                ColorsManager.kPrimaryColor,
+                ColorsManager.kSecondColor,
+              ],
+            ),
+          ),
+          child: Column(
+            children: [
+              const Text(
+                'Find Your',
+                style: Styles.styleS_50W700,
+              ),
+              const Text(
+                'Favourite',
+                style: Styles.styleS_50W700,
+              ),
+              Text(
+                'Music',
+                style: Styles.styleS_50W700.copyWith(
+                  color: const Color(0xff80CFF2),
+                ),
+              ),
+              Image.asset(
+                'assets/images/guy_listening_music.png',
+                height: 400,
+                width: double.infinity,
+                fit: BoxFit.fill,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
