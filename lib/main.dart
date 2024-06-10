@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/core/resources/routes.dart';
+
+import 'features/splash/screens/splash_page.dart';
 
 void main() {
   runApp(const MusicApp());
@@ -9,9 +12,10 @@ class MusicApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(),
+      routes: Routes.routes,
+      initialRoute: SplashPage.id,
     );
   }
 }
