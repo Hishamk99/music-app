@@ -15,4 +15,9 @@ class ColorsManager {
     const Color(0xff2f5d9a),
     const Color(0xff80cff2),
   ];
+
+  static List<Color> buttomSplashContainer = [
+    kPrimaryColor,
+    const Color(0xff3097c5).withOpacity(.04),
+  ];
 }
