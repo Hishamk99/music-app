@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_app/core/resources/colors.dart';
-import 'package:music_app/features/splash/widgets/section_one_splash.dart';
-import 'package:music_app/features/splash/widgets/section_two_splash.dart';
+import 'package:music_app/features/splash/widgets/splash_page_body.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -10,31 +8,12 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: const Alignment(.2, -.98),
-              end: const Alignment(-.2, .98),
-              colors: [
-                ColorsManager.kPrimaryColor,
-                ColorsManager.kSecondColor,
-              ],
-            ),
-          ),
-          child: const SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: 60),
-                SectionOneSplash(),
-                SizedBox(height: 50),
-                SectionTwoSplash(),
-              ],
-            ),
-          ),
-        ),
+        body: SplashPageBody(),
       ),
     );
   }
 }
+
+
