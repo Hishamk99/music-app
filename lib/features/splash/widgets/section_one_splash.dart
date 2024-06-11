@@ -10,18 +10,23 @@ class SectionOneSplash extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          const Text(
+          Text(
             'Find Your',
-            style: Styles.styles_40W700,
+            style: Styles.styles_40W700.copyWith(
+              height: .8,
+            ),
           ),
-          const Text(
+          Text(
             'Favourite',
-            style: Styles.styles_40W700,
+            style: Styles.styles_40W700.copyWith(
+              height: 1.3,
+            ),
           ),
           Text(
             'Music',
             style: Styles.styles_40W700.copyWith(
               color: const Color(0xff80CFF2),
+              height: 1.1,
             ),
           ),
           const Text(
