@@ -13,7 +13,7 @@ class SectionTwoSplash extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         SizedBox(
-          height: 372,
+          height: 382,
           child: Image.asset(
             'assets/images/guy_listening_music.png',
             width: double.infinity,
@@ -22,7 +22,7 @@ class SectionTwoSplash extends StatelessWidget {
         ),
         Positioned(
           left: 80,
-          top: -15,
+          top: -4,
           child: CustomSplashButton(
             onTap: () {
               Navigator.pushReplacementNamed(context, HomePage.id);

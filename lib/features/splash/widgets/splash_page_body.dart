@@ -27,7 +27,7 @@ class SplashPageBody extends StatelessWidget {
           children: [
             SizedBox(height: 60),
             SectionOneSplash(),
-            SizedBox(height: 50),
+            SizedBox(height: 40),
             SectionTwoSplash(),
           ],
         ),

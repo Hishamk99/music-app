@@ -14,13 +14,16 @@ class CustomSplashButton extends StatelessWidget {
         width: 165,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          gradient: const LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              ColorsManager.kWhiteColor,
-              ColorsManager.kButtonColor,
-            ],
+          border: const Border(
+            top: BorderSide(
+              width: 1,
+              color: Colors.white,
+            ),
+          ),
+          gradient: LinearGradient(
+            begin: const Alignment(0, -1),
+            end: const Alignment(0, 1),
+            colors: ColorsManager.buttonSplash,
           ),
         ),
         child: const Center(
