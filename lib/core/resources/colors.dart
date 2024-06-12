@@ -6,6 +6,7 @@ class ColorsManager {
   static Color kFourthColor = const Color(0xff3097C5).withOpacity(.04);
   static const kWhiteColor = Colors.white;
   static const kButtonColor = Color(0xff3097c5);
+  static const kTextFieldColor = Color(0xffb1afe9);
 
   static List<Color> homeGradient = [
     kPrimaryColor,
