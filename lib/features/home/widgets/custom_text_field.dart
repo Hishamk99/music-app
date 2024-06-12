@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:music_app/core/resources/colors.dart';
 import 'package:music_app/core/utils/styles.dart';
 
@@ -17,9 +18,9 @@ class CustomTextField extends StatelessWidget {
             fontWeight: FontWeight.w400,
           ),
           prefixIcon: const Icon(
-            Icons.search,
+            FontAwesomeIcons.magnifyingGlass,
             color: Colors.white,
-            size: 18,
+            size: 12,
           ),
           filled: true,
           fillColor: ColorsManager.kTextFieldColor,
