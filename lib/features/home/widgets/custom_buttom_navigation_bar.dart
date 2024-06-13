@@ -15,6 +15,8 @@ class CustomButtomNavigationBar extends StatelessWidget {
       onTap: onTap,
       backgroundColor: const Color(0xff261F44),
       type: BottomNavigationBarType.fixed,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       currentIndex: index,
       items: [
         for (int i = 0; i < ImagesBar.images.length; i++)

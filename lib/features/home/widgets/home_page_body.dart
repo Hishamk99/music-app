@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/colors.dart';
-
 import 'custom_recently_played_text.dart';
+import 'custom_recommanded_music_item.dart';
 import 'custom_text_field.dart';
 import 'recently_played_list_view.dart';
 
@@ -31,8 +31,11 @@ class HomePageBody extends StatelessWidget {
           RecentlyPlayedListView(),
           SizedBox(height: 12),
           CustomHomeText(txt: 'Recommanded music'),
+          SizedBox(height: 14),
+          CustomRecommandedMusicItem(),
         ],
       ),
     );
   }
 }
+
