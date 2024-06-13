@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/colors.dart';
-import 'package:music_app/core/utils/styles.dart';
 import 'package:music_app/features/home/widgets/custom_recently_played_text.dart';
 import 'package:music_app/features/home/widgets/custom_text_field.dart';
+import 'package:music_app/features/home/widgets/recently_played_list_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20),
               CustomRecentlyPlayedText(),
               SizedBox(height: 20),
-              CustomRecentlyPlayedSongsItem(),
+              RecentlyPlayedListView(),
             ],
           ),
         ),
@@ -38,28 +38,4 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class CustomRecentlyPlayedSongsItem extends StatelessWidget {
-  const CustomRecentlyPlayedSongsItem({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset('assets/images/selena.png'),
-        const SizedBox(height: 6),
-        Text(
-          'Who Says',
-          style: Styles.styles_18W500.copyWith(
-            fontSize: 15,
-          ),
-        ),
-        Text(
-          'Selena Gomez',
-          style: Styles.styles_12W500.copyWith(
-            color: ColorsManager.kTextFieldColor,
-          ),
-        ),
-      ],
-    );
-  }
-}
