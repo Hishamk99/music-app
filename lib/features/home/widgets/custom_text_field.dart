@@ -24,13 +24,19 @@ class CustomTextField extends StatelessWidget {
           ),
           filled: true,
           fillColor: ColorsManager.kTextFieldColor,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
+          border: outlineInputBorder(),
+          enabledBorder: outlineInputBorder(),
+          focusedBorder: outlineInputBorder(),
         ),
+      ),
+    );
+  }
+
+  InputBorder? outlineInputBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(50),
+      borderSide: const BorderSide(
+        color: ColorsManager.kPrimaryColor,
       ),
     );
   }
