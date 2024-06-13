@@ -10,8 +10,13 @@ class CustomRecentlyPlayedSongsItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset('assets/images/selena.png'),
+          Image.asset(
+            'assets/images/selena.png',
+            width: 150,
+            height: 150,
+          ),
           const SizedBox(height: 6),
           Text(
             'Who Says',
