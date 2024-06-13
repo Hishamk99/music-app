@@ -16,17 +16,19 @@ class CustomRecentlyPlayedSongsItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            singerModel.image,
-            width: 150,
-            height: 150,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(
+              singerModel.image,
+              fit: BoxFit.fill,
+              width: 150,
+              height: 150,
+            ),
           ),
           const SizedBox(height: 6),
           Text(
             singerModel.songName,
-            style: Styles.styles_18W500.copyWith(
-              fontSize: 15,
-            ),
+            style: Styles.styles_12W500,
           ),
           Text(
             singerModel.name,
