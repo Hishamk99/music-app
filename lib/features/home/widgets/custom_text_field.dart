@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: TextField(
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(vertical: 16),
+          contentPadding: const EdgeInsets.symmetric(vertical: 12),
           hintText: 'Search Song',
           hintStyle: Styles.styles_12W500.copyWith(
             fontWeight: FontWeight.w400,

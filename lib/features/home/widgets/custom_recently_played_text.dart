@@ -11,7 +11,7 @@ class CustomRecentlyPlayedText extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 24),
       child: Text(
-        'Recently Played',
+        'RECENTLY PLAYED',
         textAlign: TextAlign.start,
         style: Styles.styles_18W500,
       ),
