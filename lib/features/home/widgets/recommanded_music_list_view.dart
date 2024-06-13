@@ -11,7 +11,11 @@ class RecommandedMusicListView extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         childCount: 10,
         (context, index) {
-          return const CustomRecommandedMusicItem();
+          return CustomRecommandedMusicItem(
+            onTap: () {
+              
+            },
+          );
         },
       ),
     );

@@ -16,8 +16,8 @@ class HomePageBody extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          begin: const Alignment(.2, -.12),
-          end: const Alignment(-8, 3),
+          begin: const Alignment(.20, -.98),
+          end: const Alignment(-.20, .98),
           colors: ColorsManager.homeGradient,
         ),
       ),

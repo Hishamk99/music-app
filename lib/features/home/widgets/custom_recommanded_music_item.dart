@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:music_app/core/resources/colors.dart';
 import 'package:music_app/core/utils/styles.dart';
 
 class CustomRecommandedMusicItem extends StatelessWidget {
-  const CustomRecommandedMusicItem({super.key});
-
+  const CustomRecommandedMusicItem({
+    super.key,
+   required this.onTap,
+  });
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,7 +40,12 @@ class CustomRecommandedMusicItem extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          Image.asset('assets/images/buttom_bar/heart.png')
+          GestureDetector(
+            onTap: onTap,
+            child: Image.asset(
+              'assets/images/buttom_bar/heart.png',
+            ),
+          ),
         ],
       ),
     );
