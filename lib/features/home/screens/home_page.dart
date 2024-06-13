@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music_app/core/resources/colors.dart';
-import 'package:music_app/features/home/widgets/custom_recently_played_text.dart';
-import 'package:music_app/features/home/widgets/custom_text_field.dart';
-import 'package:music_app/features/home/widgets/recently_played_list_view.dart';
+import 'package:music_app/features/home/widgets/custom_buttom_navigation_bar.dart';
+import 'package:music_app/features/home/widgets/home_page_body.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,30 +9,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: const Alignment(.2, -.12),
-              end: const Alignment(-8, 3),
-              colors: ColorsManager.homeGradient,
-            ),
-          ),
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(height: 50),
-              CustomTextField(),
-              SizedBox(height: 20),
-              CustomHomeText(txt: 'RECENTLY PLAYED'),
-              SizedBox(height: 20),
-              RecentlyPlayedListView(),
-              SizedBox(height: 12),
-              CustomHomeText(txt: 'Recommanded music'),
-            ],
-          ),
-        ),
+        bottomNavigationBar: CustomButtomNavigationBar(),
+        body: HomePageBody(),
       ),
     );
   }
