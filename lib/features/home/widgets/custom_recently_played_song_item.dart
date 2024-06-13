@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/colors.dart';
 import 'package:music_app/core/utils/styles.dart';
+import 'package:music_app/features/home/models/singer_model.dart';
 
 class CustomRecentlyPlayedSongsItem extends StatelessWidget {
-  const CustomRecentlyPlayedSongsItem({super.key});
-
+  const CustomRecentlyPlayedSongsItem({
+    super.key,
+    required this.singerModel,
+  });
+  final SingerModel singerModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,19 +17,19 @@ class CustomRecentlyPlayedSongsItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(
-            'assets/images/selena.png',
+            singerModel.image,
             width: 150,
             height: 150,
           ),
           const SizedBox(height: 6),
           Text(
-            'Who Says',
+            singerModel.songName,
             style: Styles.styles_18W500.copyWith(
               fontSize: 15,
             ),
           ),
           Text(
-            'Selena Gomez',
+            singerModel.name,
             style: Styles.styles_12W500.copyWith(
               color: ColorsManager.kTextFieldColor,
             ),
