@@ -35,7 +35,8 @@ class RecentlyPlayedListView extends StatelessWidget {
         songName: 'Blinding Lights',
       ),
     ];
-    return Expanded(
+    return SizedBox(
+      height: 200,
       child: ListView.builder(
         itemCount: singersList.length,
         scrollDirection: Axis.horizontal,

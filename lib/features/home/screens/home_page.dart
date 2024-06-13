@@ -27,9 +27,11 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 50),
               CustomTextField(),
               SizedBox(height: 20),
-              CustomRecentlyPlayedText(),
+              CustomHomeText(txt: 'RECENTLY PLAYED'),
               SizedBox(height: 20),
               RecentlyPlayedListView(),
+              SizedBox(height: 12),
+              CustomHomeText(txt: 'Recommanded music'),
             ],
           ),
         ),
@@ -37,5 +39,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-
