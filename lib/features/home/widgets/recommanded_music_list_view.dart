@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'custom_recommanded_music_item.dart';
@@ -8,13 +7,13 @@ class RecommandedMusicListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: 10,
-      itemBuilder: (context, index) {
-        return const CustomRecommandedMusicItem();
-      },
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        childCount: 10,
+        (context, index) {
+          return const CustomRecommandedMusicItem();
+        },
+      ),
     );
   }
 }

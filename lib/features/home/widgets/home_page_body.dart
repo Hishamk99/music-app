@@ -32,10 +32,9 @@ class HomePageBody extends StatelessWidget {
           SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverToBoxAdapter(child: CustomHomeText(txt: 'Recommanded music')),
           SliverToBoxAdapter(child: SizedBox(height: 14)),
-          SliverToBoxAdapter(child: RecommandedMusicListView()),
+          RecommandedMusicListView(),
         ],
       ),
     );
   }
 }
-
