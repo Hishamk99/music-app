@@ -4,15 +4,17 @@ import 'package:music_app/features/home/widgets/home_page_body.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
   static String id = 'HomePage';
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: CustomButtomNavigationBar(),
-        body: HomePageBody(),
+        bottomNavigationBar: CustomButtomNavigationBar(
+          onTap: (index) {},
+          index: 1,
+        ),
+        body: const HomePageBody(),
       ),
     );
   }
