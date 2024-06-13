@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/features/home/data/recommanded_list.dart';
 
 import 'custom_recommanded_music_item.dart';
 
@@ -9,12 +10,11 @@ class RecommandedMusicListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-        childCount: 10,
+        childCount: RecommandedList.recommandedList.length,
         (context, index) {
           return CustomRecommandedMusicItem(
-            onTap: () {
-              
-            },
+            recommandedModel: RecommandedList.recommandedList[index],
+            onTap: () {},
           );
         },
       ),
