@@ -1,6 +1,7 @@
 # music_app
 
 A new Flutter project.
+https://www.figma.com/design/sXcrYOjs3TTwZX5HovOnan/MUSIC-APP?node-id=0-1&t=jZAZFy3KaXToPVI3-0
 
 ## Getting Started
 
