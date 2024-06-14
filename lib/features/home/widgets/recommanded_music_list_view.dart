@@ -15,6 +15,9 @@ class RecommandedMusicListView extends StatelessWidget {
           return CustomRecommandedMusicItem(
             recommandedModel: RecommandedList.recommandedList[index],
             onTap: () {},
+            playMusic: () {
+              
+            },
           );
         },
       ),

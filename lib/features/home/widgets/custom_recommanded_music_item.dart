@@ -7,9 +7,10 @@ class CustomRecommandedMusicItem extends StatelessWidget {
   const CustomRecommandedMusicItem({
     super.key,
     required this.onTap,
-    required this.recommandedModel,
+    required this.recommandedModel,required this.playMusic,
   });
   final void Function()? onTap;
+  final void Function()? playMusic;
   final RecommandedModel recommandedModel;
   @override
   Widget build(BuildContext context) {
@@ -26,23 +27,25 @@ class CustomRecommandedMusicItem extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 20),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                recommandedModel.songName,
-                style: Styles.styles_12W500.copyWith(
-                  fontSize: 14,
+          GestureDetector(
+            onTap: playMusic,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  recommandedModel.songName,
+                  style: Styles.styles_12W500,
                 ),
-              ),
-              const SizedBox(height: 3),
-              Text(
-                recommandedModel.name,
-                style: Styles.styles_12W500.copyWith(
-                  color: ColorsManager.kTextFieldColor,
+                const SizedBox(height: 3),
+                Text(
+                  recommandedModel.name,
+                  style: Styles.styles_12W500.copyWith(
+                    color: ColorsManager.kTextFieldColor,
+                    fontSize: 10,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           const Spacer(),
           GestureDetector(
