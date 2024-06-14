@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/colors.dart';
 import 'custom_details_play_music.dart';
+import 'custom_music_options.dart';
 import 'custom_song_image.dart';
 
 class PlayMusicPageBody extends StatelessWidget {
@@ -23,9 +24,13 @@ class PlayMusicPageBody extends StatelessWidget {
           const CustomSongImage(),
           SizedBox(height: height * .04),
           const CustomDetailsPlayMusic(),
+          SizedBox(height: height * .04),
+          const CustomMusicOptions(),
         ],
       ),
     );
   }
 }
+
+
 
