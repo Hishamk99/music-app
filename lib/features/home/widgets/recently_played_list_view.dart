@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/features/home/data/singer_list.dart';
+import 'package:music_app/features/play_music/screens/play_music_page.dart';
 import 'custom_recently_played_song_item.dart';
 
 class RecentlyPlayedListView extends StatelessWidget {
@@ -16,7 +17,7 @@ class RecentlyPlayedListView extends StatelessWidget {
           return CustomRecentlyPlayedSongsItem(
             singerModel: SingerList.singersList[index],
             onTap: () {
-              
+              Navigator.pushNamed(context, PlayMusicPage.id);
             },
           );
         },
