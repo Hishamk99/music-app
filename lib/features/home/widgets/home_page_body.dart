@@ -18,7 +18,7 @@ class HomePageBody extends StatelessWidget {
         gradient: LinearGradient(
           begin: const Alignment(.20, -.98),
           end: const Alignment(-.20, .98),
-          colors: ColorsManager.homeGradient,
+          colors: ColorsManager.homePlayMusicGradient,
         ),
       ),
       child: const CustomScrollView(

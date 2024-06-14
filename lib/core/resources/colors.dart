@@ -7,7 +7,7 @@ class ColorsManager {
   static const kButtonColor = Color(0xff3097c5);
   static const kTextFieldColor = Color(0xffb1afe9);
 
-  static List<Color> homeGradient = [
+  static List<Color> homePlayMusicGradient = [
     kPrimaryColor,
     const Color(0xff261f5c).withOpacity(.9),
   ];
