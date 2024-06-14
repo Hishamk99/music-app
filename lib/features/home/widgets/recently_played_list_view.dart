@@ -15,6 +15,9 @@ class RecentlyPlayedListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return CustomRecentlyPlayedSongsItem(
             singerModel: SingerList.singersList[index],
+            onTap: () {
+              
+            },
           );
         },
       ),
