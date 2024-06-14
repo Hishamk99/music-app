@@ -20,9 +20,11 @@ class PlayMusicPage extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          title: const Text(
+          title: Text(
             'NOW PLAYING',
-            style: Styles.styles_18W500,
+            style: Styles.styles_18W500.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           centerTitle: true,
           actions: [
