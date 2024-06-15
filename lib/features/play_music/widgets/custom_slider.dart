@@ -14,6 +14,7 @@ class CustomSlider extends StatelessWidget {
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
         thumbColor: Colors.transparent,
+        overlayShape: SliderComponentShape.noOverlay,
         thumbShape: const RoundSliderThumbShape(
           enabledThumbRadius: 0.0,
         ),
