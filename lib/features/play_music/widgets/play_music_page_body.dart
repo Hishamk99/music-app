@@ -3,6 +3,7 @@ import 'package:music_app/core/resources/colors.dart';
 import 'custom_details_play_music.dart';
 import 'custom_music_options.dart';
 import 'custom_song_image.dart';
+import 'custom_up_next.dart';
 
 class PlayMusicPageBody extends StatelessWidget {
   const PlayMusicPageBody({super.key});
@@ -22,10 +23,12 @@ class PlayMusicPageBody extends StatelessWidget {
         children: [
           SizedBox(height: height * .12),
           const CustomSongImage(),
-          SizedBox(height: height * .03),
+          SizedBox(height: height * .02),
           const CustomControlsPlayMusic(),
           SizedBox(height: height * .03),
           const CustomMusicOptions(),
+          SizedBox(height: height * .01),
+          const CustomUpNext(),
         ],
       ),
     );

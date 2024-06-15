@@ -12,9 +12,9 @@ class CustomSongImage extends StatelessWidget {
         Image.asset(
           'assets/images/new_rules.png',
           width: MediaQuery.of(context).size.width * .6,
-          height: MediaQuery.of(context).size.height * .27,
+          height: MediaQuery.of(context).size.height * .26,
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 10),
         Text(
           'NEW RULES',
           style: Styles.styles_12W500.copyWith(

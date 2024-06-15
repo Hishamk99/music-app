@@ -11,7 +11,7 @@ class CustomMusicOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .07,
+      height: MediaQuery.of(context).size.height * .066,
       width: MediaQuery.of(context).size.width * .7,
       decoration: BoxDecoration(
         color: ColorsManager.kTextFieldColor,
