@@ -23,7 +23,7 @@ class PlayMusicPageBody extends StatelessWidget {
           SizedBox(height: height * .12),
           const CustomSongImage(),
           SizedBox(height: height * .03),
-          const CustomDetailsPlayMusic(),
+          const CustomControlsPlayMusic(),
           SizedBox(height: height * .03),
           const CustomMusicOptions(),
         ],
