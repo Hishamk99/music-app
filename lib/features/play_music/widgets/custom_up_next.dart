@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/colors.dart';
-import 'package:music_app/core/utils/styles.dart';
 import 'custom_up_next_section_one.dart';
+import 'custom_up_next_section_two.dart';
 
 class CustomUpNext extends StatelessWidget {
   const CustomUpNext({super.key});
@@ -22,6 +22,7 @@ class CustomUpNext extends StatelessWidget {
             child: Column(
               children: [
                 CustomUpNextSectionOne(),
+                CustomUpNextSectionTwo(),
               ],
             ),
           ),
