@@ -20,17 +20,14 @@ class PlayMusicPageBody extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SizedBox(height: height * .16),
+          SizedBox(height: height * .12),
           const CustomSongImage(),
-          SizedBox(height: height * .04),
+          SizedBox(height: height * .03),
           const CustomDetailsPlayMusic(),
-          SizedBox(height: height * .04),
+          SizedBox(height: height * .03),
           const CustomMusicOptions(),
         ],
       ),
     );
   }
 }
-
-
-
