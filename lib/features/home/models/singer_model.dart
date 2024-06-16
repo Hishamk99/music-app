@@ -6,14 +6,13 @@ class SingerModel {
   final String songName;
   final String path;
 
-  SingerModel( {
+  SingerModel({
     required this.image,
     required this.name,
     required this.songName,
     required this.path,
   });
-  void playSound()
-  {
+  void playSound() {
     final player = AudioPlayer();
     player.play(AssetSource(path));
   }
