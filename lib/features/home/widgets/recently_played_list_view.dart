@@ -18,6 +18,7 @@ class RecentlyPlayedListView extends StatelessWidget {
             singerModel: SingerList.singersList[index],
             onTap: () {
               Navigator.pushNamed(context, PlayMusicPage.id);
+              SingerList.singersList[index].playSound();
             },
           );
         },

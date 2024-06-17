@@ -6,31 +6,31 @@ class SingerList {
       image: 'assets/images/selena.png',
       name: 'Selena Gomez',
       songName: 'Who Says',
-      path: '',
+      path: 'assets/audio/who_says.mp3',
     ),
     SingerModel(
       image: 'assets/images/bebber.png',
       name: 'Justin Bieber',
       songName: 'SORRY',
-      path: '',
+      path: 'assets/audio/sorry.mp3',
     ),
     SingerModel(
       image: 'assets/images/alan.jfif',
       name: 'Alan Walker',
       songName: 'Sing Me To Sleep',
-      path: '',
+      path: 'assets/audio/sing_me_to_sleep.mp3',
     ),
     SingerModel(
       image: 'assets/images/pitbull.jfif',
       name: 'PitBull',
       songName: 'Give Me Everything',
-      path: '',
+      path: 'assets/audio/give_me_everything.mp3',
     ),
     SingerModel(
       image: 'assets/images/the-weekend.jfif',
       name: 'The Weeknd',
       songName: 'Blinding Lights',
-      path: '',
+      path: 'assets/audio/blinding_lights.mp3',
     ),
   ];
 }

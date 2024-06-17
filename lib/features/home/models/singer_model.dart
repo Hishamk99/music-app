@@ -1,4 +1,4 @@
-import 'package:audioplayers/audioplayers.dart';
+import 'package:just_audio/just_audio.dart';
 
 class SingerModel {
   final String image;
@@ -12,8 +12,9 @@ class SingerModel {
     required this.songName,
     required this.path,
   });
-  void playSound() {
+  Future<void> playSound() async{
     final player = AudioPlayer();
-    player.play(AssetSource(path));
+    player.setAsset(path);
+    await player.play();
   }
 }
