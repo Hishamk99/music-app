@@ -24,7 +24,7 @@ class RecommandedMusicListView extends StatelessWidget {
                 arguments: DisposeModel(
                   index: index,
                   isRecently: false,
-                  path: RecommandedList.recommandedList[index].image,
+                  path: RecommandedList.recommandedList[index].rectangeImage,
                   name: RecommandedList.recommandedList[index].name,
                   songName: RecommandedList.recommandedList[index].songName,
                 ),

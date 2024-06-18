@@ -10,10 +10,14 @@ class CustomSongImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(
-          disposeModel.path,
-          width: MediaQuery.of(context).size.width * .6,
-          height: MediaQuery.of(context).size.height * .26,
+        ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Image.asset(
+            disposeModel.path,
+            width: MediaQuery.of(context).size.width * .6,
+            height: MediaQuery.of(context).size.height * .26,
+            fit: BoxFit.cover,
+          ),
         ),
         const SizedBox(height: 10),
         Text(
