@@ -21,7 +21,13 @@ class RecentlyPlayedListView extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 PlayMusicPage.id,
-                arguments: DisposeModel(index: index, isRecently: true),
+                arguments: DisposeModel(
+                  index: index,
+                  isRecently: true,
+                  path: SingerList.singersList[index].image,
+                  name: SingerList.singersList[index].name,
+                  songName: SingerList.singersList[index].songName,
+                ),
               );
               SingerList.singersList[index].playSound();
             },

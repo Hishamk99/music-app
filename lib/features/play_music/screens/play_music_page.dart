@@ -10,7 +10,7 @@ class PlayMusicPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var dispose = ModalRoute.of(context)!.settings.arguments;
+    var dispose = ModalRoute.of(context)!.settings.arguments as DisposeModel;
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: CustomButtomNavigationBar(
@@ -18,9 +18,9 @@ class PlayMusicPage extends StatelessWidget {
           index: 1,
         ),
         extendBodyBehindAppBar: true,
-        appBar:  CustomAppBar(disposeModel:dispose as DisposeModel),
-        body:const PlayMusicPageBody(
- 
+        appBar: CustomAppBar(disposeModel: dispose),
+        body: PlayMusicPageBody(
+          disposeModel: dispose,
         ),
       ),
     );

@@ -21,7 +21,13 @@ class RecommandedMusicListView extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 PlayMusicPage.id,
-                arguments: DisposeModel(index: index, isRecently: false),
+                arguments: DisposeModel(
+                  index: index,
+                  isRecently: false,
+                  path: RecommandedList.recommandedList[index].image,
+                  name: RecommandedList.recommandedList[index].name,
+                  songName: RecommandedList.recommandedList[index].songName,
+                ),
               );
               RecommandedList.recommandedList[index].playSound();
             },
