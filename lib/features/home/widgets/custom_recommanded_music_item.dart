@@ -7,11 +7,14 @@ class CustomRecommandedMusicItem extends StatelessWidget {
   const CustomRecommandedMusicItem({
     super.key,
     required this.onTap,
-    required this.recommandedModel,required this.playMusic,
+    required this.recommandedModel,
+    required this.playMusic,
   });
   final void Function()? onTap;
-  final void Function()? playMusic;
+  final void Function() playMusic;
   final RecommandedModel recommandedModel;
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(

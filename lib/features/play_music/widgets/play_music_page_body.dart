@@ -6,8 +6,8 @@ import 'custom_song_image.dart';
 import 'custom_up_next.dart';
 
 class PlayMusicPageBody extends StatelessWidget {
-  const PlayMusicPageBody({super.key});
-
+  const PlayMusicPageBody({super.key, required this.index});
+  final int index;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -24,7 +24,7 @@ class PlayMusicPageBody extends StatelessWidget {
           SizedBox(height: height * .12),
           const CustomSongImage(),
           SizedBox(height: height * .02),
-          const CustomControlsPlayMusic(),
+          CustomControlsPlayMusic(index: index),
           SizedBox(height: height * .03),
           const CustomMusicOptions(),
           SizedBox(height: height * .01),

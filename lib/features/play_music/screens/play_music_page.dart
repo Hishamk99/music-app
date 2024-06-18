@@ -9,6 +9,7 @@ class PlayMusicPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int index = ModalRoute.of(context)!.settings.arguments as int;
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: CustomButtomNavigationBar(
@@ -17,7 +18,7 @@ class PlayMusicPage extends StatelessWidget {
         ),
         extendBodyBehindAppBar: true,
         appBar: const CustomAppBar(),
-        body: const PlayMusicPageBody(),
+        body: PlayMusicPageBody(index: index,),
       ),
     );
   }
