@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/features/home/data/recommanded_list.dart';
+import 'package:music_app/features/home/models/dispose_model.dart';
 import 'package:music_app/features/play_music/screens/play_music_page.dart';
 
 import 'custom_recommanded_music_item.dart';
@@ -17,7 +18,12 @@ class RecommandedMusicListView extends StatelessWidget {
             recommandedModel: RecommandedList.recommandedList[index],
             onTap: () {},
             playMusic: () {
-              Navigator.pushNamed(context, PlayMusicPage.id , arguments: index);
+              Navigator.pushNamed(
+                context,
+                PlayMusicPage.id,
+                arguments: DisposeModel(index: index, isRecently: false),
+              );
+              RecommandedList.recommandedList[index].playSound();
             },
           );
         },

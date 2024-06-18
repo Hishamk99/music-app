@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/utils/styles.dart';
+import 'package:music_app/features/home/data/recommanded_list.dart';
+import 'package:music_app/features/home/data/singer_list.dart';
+import 'package:music_app/features/home/models/dispose_model.dart';
 
 import 'custom_icon_button.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
+    required this.disposeModel,
   });
-
+  final DisposeModel disposeModel;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -15,6 +19,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: CustomIconButton(
         image: 'assets/images/left_arrow.png',
         onPressed: () {
+          if (disposeModel.isRecently) {
+            SingerList.singersList[disposeModel.index].disposeSound();
+          } else {
+            RecommandedList.recommandedList[disposeModel.index].disposeSound();
+          }
           Navigator.pop(context);
         },
       ),

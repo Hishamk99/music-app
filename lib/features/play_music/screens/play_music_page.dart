@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/features/home/models/dispose_model.dart';
 import 'package:music_app/features/home/widgets/custom_buttom_navigation_bar.dart';
 import 'package:music_app/features/play_music/widgets/custom_app_bar.dart';
 import 'package:music_app/features/play_music/widgets/play_music_page_body.dart';
@@ -9,7 +10,7 @@ class PlayMusicPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int index = ModalRoute.of(context)!.settings.arguments as int;
+    var dispose = ModalRoute.of(context)!.settings.arguments;
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: CustomButtomNavigationBar(
@@ -17,8 +18,10 @@ class PlayMusicPage extends StatelessWidget {
           index: 1,
         ),
         extendBodyBehindAppBar: true,
-        appBar: const CustomAppBar(),
-        body: PlayMusicPageBody(index: index,),
+        appBar:  CustomAppBar(disposeModel:dispose as DisposeModel),
+        body:const PlayMusicPageBody(
+ 
+        ),
       ),
     );
   }

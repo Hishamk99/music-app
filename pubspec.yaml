@@ -67,6 +67,7 @@ flutter:
     - assets/images/recommanded/
     - assets/images/music_icon/
     - assets/audio/
+    - assets/audio/recommanded_music/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

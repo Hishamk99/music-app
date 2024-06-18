@@ -6,8 +6,7 @@ import 'custom_music_icon.dart';
 import 'custom_slider.dart';
 
 class CustomControlsPlayMusic extends StatelessWidget {
-  const CustomControlsPlayMusic({super.key, required this.index});
-  final int index;
+  const CustomControlsPlayMusic({super.key,});
   @override
   Widget build(BuildContext context) {
     return Padding(

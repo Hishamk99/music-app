@@ -12,9 +12,13 @@ class SingerModel {
     required this.songName,
     required this.path,
   });
-  Future<void> playSound() async{
-    final player = AudioPlayer();
+  final player = AudioPlayer();
+  Future<void> playSound() async {
     player.setAsset(path);
     await player.play();
+  }
+
+  Future<void> disposeSound() async {
+    await player.dispose();
   }
 }
