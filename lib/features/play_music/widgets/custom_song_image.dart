@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/colors.dart';
 import 'package:music_app/core/utils/styles.dart';
-import 'package:music_app/features/home/models/dispose_model.dart';
+import 'package:music_app/features/home/models/song_data_model.dart';
 
 class CustomSongImage extends StatelessWidget {
   const CustomSongImage({super.key, required this.disposeModel});
-  final DisposeModel disposeModel;
+  final SongDataModel disposeModel;
   @override
   Widget build(BuildContext context) {
     return Column(

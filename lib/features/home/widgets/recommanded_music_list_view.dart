@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/core/utils/play_music.dart';
+import 'package:music_app/core/utils/servise_locator.dart';
 import 'package:music_app/features/home/data/recommanded_list.dart';
-import 'package:music_app/features/home/models/dispose_model.dart';
+import 'package:music_app/features/home/models/song_data_model.dart';
 import 'package:music_app/features/play_music/screens/play_music_page.dart';
 
 import 'custom_recommanded_music_item.dart';
@@ -21,7 +23,7 @@ class RecommandedMusicListView extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 PlayMusicPage.id,
-                arguments: DisposeModel(
+                arguments: SongDataModel(
                   index: index,
                   isRecently: false,
                   path: RecommandedList.recommandedList[index].rectangeImage,
@@ -29,7 +31,10 @@ class RecommandedMusicListView extends StatelessWidget {
                   songName: RecommandedList.recommandedList[index].songName,
                 ),
               );
-              RecommandedList.recommandedList[index].playSound();
+
+              PlayMusic playMusic = getIt.get<PlayMusic>();
+
+              playMusic.playSound(RecommandedList.recommandedList[index].path);
             },
           );
         },

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/core/utils/play_music.dart';
+import 'package:music_app/core/utils/servise_locator.dart';
 import 'package:music_app/features/home/data/singer_list.dart';
-import 'package:music_app/features/home/models/dispose_model.dart';
+import 'package:music_app/features/home/models/song_data_model.dart';
 import 'package:music_app/features/play_music/screens/play_music_page.dart';
 import 'custom_recently_played_song_item.dart';
 
@@ -21,7 +23,7 @@ class RecentlyPlayedListView extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 PlayMusicPage.id,
-                arguments: DisposeModel(
+                arguments: SongDataModel(
                   index: index,
                   isRecently: true,
                   path: SingerList.singersList[index].image,
@@ -29,7 +31,9 @@ class RecentlyPlayedListView extends StatelessWidget {
                   songName: SingerList.singersList[index].songName,
                 ),
               );
-              SingerList.singersList[index].playSound();
+              PlayMusic playMusic = getIt.get<PlayMusic>();
+
+              playMusic.playSound(SingerList.singersList[index].path);
             },
           );
         },

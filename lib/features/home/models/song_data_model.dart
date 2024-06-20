@@ -1,11 +1,11 @@
-class DisposeModel {
+class SongDataModel {
   final bool isRecently;
   final int index;
   final String path;
   final String name;
   final String songName;
 
-  DisposeModel({
+  SongDataModel({
     required this.path,
     required this.name,
     required this.songName,

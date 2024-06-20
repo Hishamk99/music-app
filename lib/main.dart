@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/routes.dart';
 
+import 'core/utils/servise_locator.dart';
 import 'features/splash/screens/splash_page.dart';
 
-void main() {
+void main() {  
+  WidgetsFlutterBinding.ensureInitialized();
+  setup();
   runApp(const MusicApp());
 }
 
