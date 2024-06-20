@@ -14,6 +14,8 @@ class CustomMusicIcon extends StatelessWidget {
       onPressed: onPressed,
       icon: Image.asset(
         musicIcon,
+        color: Colors.white,
+        width: 25,
       ),
     );
   }

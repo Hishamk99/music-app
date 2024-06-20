@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/colors.dart';
 import 'package:music_app/core/utils/styles.dart';
-
 import 'custom_music_icon.dart';
 import 'custom_slider.dart';
+import 'on_off_builder.dart';
 
 class CustomControlsPlayMusic extends StatelessWidget {
-  const CustomControlsPlayMusic({super.key,});
+  const CustomControlsPlayMusic({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,14 +26,7 @@ class CustomControlsPlayMusic extends StatelessWidget {
                 musicIcon: 'assets/images/music_icon/left_ellipse.png',
                 onPressed: () {},
               ),
-              CircleAvatar(
-                radius: 30,
-                backgroundColor: ColorsManager.kTextFieldColor,
-                child: CustomMusicIcon(
-                  musicIcon: 'assets/images/music_icon/on_off.png',
-                  onPressed: () {},
-                ),
-              ),
+              const CustomOnOffBuilder(),
               CustomMusicIcon(
                 musicIcon: 'assets/images/music_icon/right_ellipse.png',
                 onPressed: () {},

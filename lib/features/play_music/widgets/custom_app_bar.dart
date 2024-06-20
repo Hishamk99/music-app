@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_app/core/utils/play_music.dart';
 import 'package:music_app/core/utils/styles.dart';
-import 'package:music_app/features/home/data/recommanded_list.dart';
-import 'package:music_app/features/home/data/singer_list.dart';
 import 'package:music_app/features/home/models/song_data_model.dart';
 
 import 'custom_icon_button.dart';
@@ -20,14 +17,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: CustomIconButton(
         image: 'assets/images/left_arrow.png',
         onPressed: () {
+          // //PlayMusic dipose = getIt.get<PlayMusic>();
           // if (songDataModel.isRecently) {
           //   //SingerList.singersList[disposeModel.index].disposeSound();
-          //   PlayMusic(SingerList.singersList[songDataModel.index].path)
-          //       .disposeSound();
+          //   //dipose.disposeSound(SingerList.singersList[songDataModel.index].path);
           // } else {
           //   //RecommandedList.recommandedList[disposeModel.index].disposeSound();
-          //   PlayMusic(RecommandedList.recommandedList[songDataModel.index].path)
-          //       .disposeSound();
+          //   //dipose.disposeSound(RecommandedList.recommandedList[songDataModel.index].path);
           // }
           Navigator.pop(context);
         },
