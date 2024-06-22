@@ -1,6 +1,6 @@
 import 'package:just_audio/just_audio.dart';
 
-class PlayMusic { 
+class PlayMusic {
   //final String path;
   AudioPlayer player = AudioPlayer();
 
@@ -9,10 +9,12 @@ class PlayMusic {
   // factory PlayMusic(String path) {
   //   return instance ?? PlayMusic.play(path);
   // }
+  Duration? duration;
+  Future<Duration?> playSound(path) async {
+    duration = await player.setAsset(path);
 
-  Future<void> playSound(path) async {
-    player.setAsset(path);
     await player.play();
+    return duration;
   }
 
   Future<void> pauseAndPlaySound() async {

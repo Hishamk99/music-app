@@ -20,6 +20,9 @@ class RecentlyPlayedListView extends StatelessWidget {
           return CustomRecentlyPlayedSongsItem(
             singerModel: SingerList.singersList[index],
             onTap: () {
+              PlayMusic playMusic = getIt.get<PlayMusic>();
+              playMusic.playSound(SingerList.singersList[index].path);
+
               Navigator.pushNamed(
                 context,
                 PlayMusicPage.id,
@@ -29,11 +32,9 @@ class RecentlyPlayedListView extends StatelessWidget {
                   path: SingerList.singersList[index].image,
                   name: SingerList.singersList[index].name,
                   songName: SingerList.singersList[index].songName,
+                  duration: playMusic.duration!,
                 ),
               );
-              PlayMusic playMusic = getIt.get<PlayMusic>();
-
-              playMusic.playSound(SingerList.singersList[index].path);
             },
           );
         },

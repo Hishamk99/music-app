@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/routes.dart';
+import 'package:music_app/core/utils/play_music.dart';
 import 'core/utils/servise_locator.dart';
 import 'features/splash/screens/splash_page.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setup();
+  PlayMusic playMusic = getIt.get<PlayMusic>();
+  playMusic.playSound('assets/audio/mouse_click.mp3');
   runApp(const MusicApp());
 }
 

@@ -4,8 +4,10 @@ class SongDataModel {
   final String path;
   final String name;
   final String songName;
+  final Duration duration;
 
   SongDataModel({
+    required this.duration,
     required this.path,
     required this.name,
     required this.songName,

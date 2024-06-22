@@ -20,6 +20,9 @@ class RecommandedMusicListView extends StatelessWidget {
             recommandedModel: RecommandedList.recommandedList[index],
             onTap: () {},
             playMusic: () {
+              PlayMusic playMusic = getIt.get<PlayMusic>();
+              playMusic.playSound(RecommandedList.recommandedList[index].path);
+
               Navigator.pushNamed(
                 context,
                 PlayMusicPage.id,
@@ -29,12 +32,10 @@ class RecommandedMusicListView extends StatelessWidget {
                   path: RecommandedList.recommandedList[index].rectangeImage,
                   name: RecommandedList.recommandedList[index].name,
                   songName: RecommandedList.recommandedList[index].songName,
+                  //duration: du!,
+                  duration: playMusic.duration!,
                 ),
               );
-
-              PlayMusic playMusic = getIt.get<PlayMusic>();
-
-              playMusic.playSound(RecommandedList.recommandedList[index].path);
             },
           );
         },

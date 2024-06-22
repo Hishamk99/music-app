@@ -9,11 +9,12 @@ class OnOffControllerCubit extends Cubit<OnOffControllerState> {
   OnOffControllerCubit() : super(OnOffControllerInitial());
 
   bool isPlaying = true;
+
   PlayMusic playMusic = getIt.get<PlayMusic>();
+
   void changeIcon() {
     playMusic.pauseAndPlaySound();
     isPlaying = !isPlaying;
-
-    //emit(OnOffController());
+    emit(OnOffController());
   }
 }

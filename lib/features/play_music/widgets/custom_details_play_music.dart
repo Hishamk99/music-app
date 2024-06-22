@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:music_app/core/resources/colors.dart';
 import 'package:music_app/core/utils/styles.dart';
+import 'package:music_app/features/home/models/song_data_model.dart';
 import 'custom_music_icon.dart';
 import 'custom_slider.dart';
 import 'on_off_builder.dart';
 
 class CustomControlsPlayMusic extends StatelessWidget {
-  const CustomControlsPlayMusic({
-    super.key,
-  });
+  const CustomControlsPlayMusic({super.key, required this.disposeModel});
+  final SongDataModel disposeModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,13 +48,13 @@ class CustomControlsPlayMusic extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '2.03',
+                '0.0',
                 style: Styles.styles_12W500.copyWith(
                   color: ColorsManager.kTextFieldColor,
                 ),
               ),
               Text(
-                '4.03',
+               disposeModel.duration.toString() ,
                 style: Styles.styles_12W500.copyWith(
                   color: ColorsManager.kTextFieldColor,
                 ),
