@@ -54,7 +54,7 @@ class CustomControlsPlayMusic extends StatelessWidget {
                 ),
               ),
               Text(
-               disposeModel.duration.toString() ,
+                '${disposeModel.duration.inMinutes}:${disposeModel.duration.inSeconds % 60}',
                 style: Styles.styles_12W500.copyWith(
                   color: ColorsManager.kTextFieldColor,
                 ),

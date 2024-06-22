@@ -32,7 +32,6 @@ class RecommandedMusicListView extends StatelessWidget {
                   path: RecommandedList.recommandedList[index].rectangeImage,
                   name: RecommandedList.recommandedList[index].name,
                   songName: RecommandedList.recommandedList[index].songName,
-                  //duration: du!,
                   duration: playMusic.duration!,
                 ),
               );
