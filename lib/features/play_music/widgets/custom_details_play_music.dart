@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:music_app/core/resources/colors.dart';
-import 'package:music_app/core/utils/styles.dart';
 import 'package:music_app/features/home/models/song_data_model.dart';
-import 'package:music_app/main.dart';
+import 'custom_duration_text.dart';
 import 'custom_music_icon.dart';
 import 'custom_slider.dart';
 import 'on_off_builder.dart';
@@ -46,34 +44,7 @@ class CustomControlsPlayMusic extends StatelessWidget {
             val: .7,
           ),
           const SizedBox(height: 6),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              StreamBuilder<Duration>(
-                stream: playMusic.output,
-                builder: (context, snapshot) {
-                  return Text(
-                    '${snapshot.data?.inMinutes ?? '0'}:${(snapshot.data?.inSeconds ?? 0) % 60}',
-                    style: Styles.styles_12W500.copyWith(
-                      color: ColorsManager.kTextFieldColor,
-                    ),
-                  );
-                },
-              ),
-              StreamBuilder<Duration?>(
-                stream: playMusic.outputEnd,
-                builder: (context, snapshot) {
-                  return Text(
-                    //'${disposeModel.duration.inMinutes}:${disposeModel.duration.inSeconds % 60}',
-                    '${snapshot.data?.inMinutes ?? 0}:${(snapshot.data?.inSeconds ?? 0) % 60}',
-                    style: Styles.styles_12W500.copyWith(
-                      color: ColorsManager.kTextFieldColor,
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
+          const CustomDurationText(),
         ],
       ),
     );

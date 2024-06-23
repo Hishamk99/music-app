@@ -29,7 +29,7 @@ class PlayMusic {
   //   return instance ?? PlayMusic.play(path);
   // }
   Duration? duration;
-  Future<Duration?> playSound(path) async {
+  Future<void> playSound(path) async {
     duration = await player.setAsset(path);
 
     await player.play();
@@ -37,7 +37,7 @@ class PlayMusic {
     player.positionStream.listen((event) {
       input.add(event);
     });
-    return duration;
+    //return duration;
   }
 
   Future<void> pauseAndPlaySound() async {

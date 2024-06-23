@@ -31,7 +31,6 @@ class RecentlyPlayedListView extends StatelessWidget {
                   path: SingerList.singersList[index].image,
                   name: SingerList.singersList[index].name,
                   songName: SingerList.singersList[index].songName,
-                  duration: playMusic.duration!,
                 ),
               );
             },
