@@ -9,6 +9,7 @@ void main() async {
   setup();
  
   playMusic.setInputOutput();
+  playMusic.setInputOutputEndDuration();
   playMusic.playSound('assets/audio/mouse_click.mp3');
   runApp(const MusicApp());
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:music_app/core/resources/colors.dart';
@@ -52,18 +53,24 @@ class CustomControlsPlayMusic extends StatelessWidget {
                 stream: playMusic.output,
                 builder: (context, snapshot) {
                   return Text(
-                    '${snapshot.data!.inMinutes}:${ snapshot.data!.inSeconds % 60}',
+                    '${snapshot.data?.inMinutes ?? '0'}:${(snapshot.data?.inSeconds ?? 0) % 60}',
                     style: Styles.styles_12W500.copyWith(
                       color: ColorsManager.kTextFieldColor,
                     ),
                   );
                 },
               ),
-              Text(
-                '${disposeModel.duration.inMinutes}:${disposeModel.duration.inSeconds % 60}',
-                style: Styles.styles_12W500.copyWith(
-                  color: ColorsManager.kTextFieldColor,
-                ),
+              StreamBuilder<Duration?>(
+                stream: playMusic.outputEnd,
+                builder: (context, snapshot) {
+                  return Text(
+                    //'${disposeModel.duration.inMinutes}:${disposeModel.duration.inSeconds % 60}',
+                    '${snapshot.data?.inMinutes ?? 0}:${(snapshot.data?.inSeconds ?? 0) % 60}',
+                    style: Styles.styles_12W500.copyWith(
+                      color: ColorsManager.kTextFieldColor,
+                    ),
+                  );
+                },
               ),
             ],
           ),

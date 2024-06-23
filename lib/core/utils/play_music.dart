@@ -8,9 +8,19 @@ class PlayMusic {
   late Sink<Duration> input;
   late Stream<Duration> output;
 
+  StreamController<Duration> durationEnd = StreamController<Duration>();
+  late Sink<Duration> inputEnd;
+  late Stream<Duration> outputEnd;
+
   void setInputOutput() {
     input = durationNow.sink;
     output = durationNow.stream.asBroadcastStream();
+  }
+  
+
+  void setInputOutputEndDuration() {
+    inputEnd = durationEnd.sink;
+    outputEnd = durationEnd.stream.asBroadcastStream();
   }
 
   // PlayMusic.play(this.path);
@@ -19,11 +29,11 @@ class PlayMusic {
   //   return instance ?? PlayMusic.play(path);
   // }
   Duration? duration;
-
   Future<Duration?> playSound(path) async {
     duration = await player.setAsset(path);
 
     await player.play();
+    inputEnd.add(duration!);
     player.positionStream.listen((event) {
       input.add(event);
     });
