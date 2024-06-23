@@ -49,15 +49,16 @@ class CustomControlsPlayMusic extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               StreamBuilder<Duration>(
-                  stream: playMusic.output,
-                  builder: (context, snapshot) {
-                    return Text(
-                       snapshot.data.toString(),
-                      style: Styles.styles_12W500.copyWith(
-                        color: ColorsManager.kTextFieldColor,
-                      ),
-                    );
-                  }),
+                stream: playMusic.output,
+                builder: (context, snapshot) {
+                  return Text(
+                    '${snapshot.data!.inMinutes}:${ snapshot.data!.inSeconds % 60}',
+                    style: Styles.styles_12W500.copyWith(
+                      color: ColorsManager.kTextFieldColor,
+                    ),
+                  );
+                },
+              ),
               Text(
                 '${disposeModel.duration.inMinutes}:${disposeModel.duration.inSeconds % 60}',
                 style: Styles.styles_12W500.copyWith(
