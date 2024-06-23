@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:music_app/core/resources/colors.dart';
 import 'package:music_app/core/utils/styles.dart';
 import 'package:music_app/features/home/models/song_data_model.dart';
+import 'package:music_app/main.dart';
 import 'custom_music_icon.dart';
 import 'custom_slider.dart';
 import 'on_off_builder.dart';
@@ -47,12 +48,16 @@ class CustomControlsPlayMusic extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                '0.0',
-                style: Styles.styles_12W500.copyWith(
-                  color: ColorsManager.kTextFieldColor,
-                ),
-              ),
+              StreamBuilder<Duration>(
+                  stream: playMusic.output,
+                  builder: (context, snapshot) {
+                    return Text(
+                       snapshot.data.toString(),
+                      style: Styles.styles_12W500.copyWith(
+                        color: ColorsManager.kTextFieldColor,
+                      ),
+                    );
+                  }),
               Text(
                 '${disposeModel.duration.inMinutes}:${disposeModel.duration.inSeconds % 60}',
                 style: Styles.styles_12W500.copyWith(

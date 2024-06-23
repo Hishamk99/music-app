@@ -1,8 +1,17 @@
+import 'dart:async';
 import 'package:just_audio/just_audio.dart';
 
 class PlayMusic {
   //final String path;
   AudioPlayer player = AudioPlayer();
+  StreamController<Duration> durationNow = StreamController<Duration>();
+  late Sink<Duration> input;
+  late Stream<Duration> output;
+
+  void setInputOutput() {
+    input = durationNow.sink;
+    output = durationNow.stream.asBroadcastStream();
+  }
 
   // PlayMusic.play(this.path);
   // static PlayMusic? instance;
@@ -10,10 +19,14 @@ class PlayMusic {
   //   return instance ?? PlayMusic.play(path);
   // }
   Duration? duration;
+
   Future<Duration?> playSound(path) async {
     duration = await player.setAsset(path);
 
     await player.play();
+    player.positionStream.listen((event) {
+      input.add(event);
+    });
     return duration;
   }
 

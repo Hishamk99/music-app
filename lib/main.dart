@@ -7,10 +7,12 @@ import 'features/splash/screens/splash_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setup();
-  PlayMusic playMusic = getIt.get<PlayMusic>();
+ 
+  playMusic.setInputOutput();
   playMusic.playSound('assets/audio/mouse_click.mp3');
   runApp(const MusicApp());
 }
+ PlayMusic playMusic = getIt.get<PlayMusic>();
 
 class MusicApp extends StatelessWidget {
   const MusicApp({super.key});
