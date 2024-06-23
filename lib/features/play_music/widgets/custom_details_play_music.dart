@@ -8,7 +8,10 @@ import 'custom_slider.dart';
 import 'on_off_builder.dart';
 
 class CustomControlsPlayMusic extends StatelessWidget {
-  const CustomControlsPlayMusic({super.key, required this.disposeModel});
+  const CustomControlsPlayMusic({
+    super.key,
+    required this.disposeModel,
+  });
   final SongDataModel disposeModel;
   @override
   Widget build(BuildContext context) {

@@ -31,9 +31,9 @@ class PlayMusic {
   Duration? duration;
   Future<void> playSound(path) async {
     duration = await player.setAsset(path);
-
-    await player.play();
     inputEnd.add(duration!);
+    await player.play();
+    
     player.positionStream.listen((event) {
       input.add(event);
     });
