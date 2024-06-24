@@ -18,10 +18,10 @@ class RecomandedSongData extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Image.asset(
-            data.image,
+            data.rectangleImage,
             width: MediaQuery.of(context).size.width * .6,
             height: MediaQuery.of(context).size.height * .26,
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
         ),
         const SizedBox(height: 10),

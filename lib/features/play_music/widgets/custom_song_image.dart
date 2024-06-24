@@ -18,6 +18,7 @@ class CustomSongImage extends StatelessWidget {
           RecommandedModel data =
               BlocProvider.of<NextPreviousSongCubit>(context)
                   .songDataRecommanded!;
+         
           return RecomandedSongData(data: data);
         } else {
           SingerModel data =

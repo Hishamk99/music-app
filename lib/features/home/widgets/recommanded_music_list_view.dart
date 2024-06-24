@@ -30,7 +30,7 @@ class RecommandedMusicListView extends StatelessWidget {
               );
               RecommandedModel recommandedModel = RecommandedModel(
                 index: index,
-                image: RecommandedList.recommandedList[index].rectangleImage,
+                image: RecommandedList.recommandedList[index].image,
                 name: RecommandedList.recommandedList[index].name,
                 songName: RecommandedList.recommandedList[index].songName,
                 rectangleImage:
