@@ -19,9 +19,8 @@ class PlayMusic {
 
   void setInputOutputSlider() {
     inputSlider = sliderVal.sink;
-    outputSlider = sliderVal.stream
-        .asBroadcastStream()
-        .map((event) => event.inSeconds.toDouble() / duration!.inSeconds.toDouble() / 1.0);
+    outputSlider = sliderVal.stream.asBroadcastStream().map((event) =>
+        event.inSeconds.toDouble() / duration!.inSeconds.toDouble() / 1.0);
   }
 
   void setInputOutput() {
@@ -34,12 +33,21 @@ class PlayMusic {
     outputEnd = durationEnd.stream.asBroadcastStream();
   }
 
+  void onChangedSlider(double value) {
+    Duration position = transferValuesOfSliderToDuration(value);
+    player.seek(position);
+  }
+
+  Duration transferValuesOfSliderToDuration(double value) {
+    double sliderNow = (value / 1.0) * duration!.inSeconds.toDouble();
+    return Duration(seconds: sliderNow.toInt());
+  }
   // PlayMusic.play(this.path);
   // static PlayMusic? instance;
   // factory PlayMusic(String path) {
   //   return instance ?? PlayMusic.play(path);
   // }
-  
+
   Future<void> playSound(path) async {
     duration = await player.setAsset(path);
     inputEnd.add(duration!);
