@@ -1,30 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/colors.dart';
+import 'package:music_app/main.dart';
 
 class CustomSlider extends StatelessWidget {
   const CustomSlider({
     super.key,
     required this.onChanged,
-    required this.val,
   });
   final void Function(double)? onChanged;
-  final double val;
+
   @override
   Widget build(BuildContext context) {
-    return SliderTheme(
-      data: SliderTheme.of(context).copyWith(
-        thumbColor: Colors.transparent,
-        overlayShape: SliderComponentShape.noOverlay,
-        thumbShape: const RoundSliderThumbShape(
-          enabledThumbRadius: 0.0,
-        ),
-      ),
-      child: Slider(
-        value: val,
-        onChanged: onChanged,
-        activeColor: ColorsManager.kTextFieldColor,
-        inactiveColor: Colors.grey,
-      ),
+    return StreamBuilder<double>(
+      stream: playMusic.outputSlider,
+      builder: (context, snapshot) {
+        return SliderTheme(
+          data: SliderTheme.of(context).copyWith(
+            thumbColor: Colors.transparent,
+            overlayShape: SliderComponentShape.noOverlay,
+            thumbShape: const RoundSliderThumbShape(
+              enabledThumbRadius: 0.0,
+            ),
+          ),
+          child: Slider(
+            value: snapshot.data ?? 0,
+            onChanged: onChanged,
+            activeColor: ColorsManager.kTextFieldColor,
+            inactiveColor: Colors.grey,
+          ),
+        );
+      }
     );
   }
 }

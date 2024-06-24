@@ -12,6 +12,7 @@ void main() async {
 
   playMusic.setInputOutput();
   playMusic.setInputOutputEndDuration();
+  playMusic.setInputOutputSlider();
   runApp(const MusicApp());
 }
 

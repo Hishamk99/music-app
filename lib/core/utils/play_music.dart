@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:just_audio/just_audio.dart';
 
 class PlayMusic {
+  Duration? duration;
   //final String path;
   AudioPlayer player = AudioPlayer();
   StreamController<Duration> durationNow = StreamController<Duration>();
@@ -11,6 +12,17 @@ class PlayMusic {
   StreamController<Duration> durationEnd = StreamController<Duration>();
   late Sink<Duration> inputEnd;
   late Stream<Duration> outputEnd;
+
+  StreamController<Duration> sliderVal = StreamController<Duration>();
+  late Sink<Duration> inputSlider;
+  late Stream<double> outputSlider;
+
+  void setInputOutputSlider() {
+    inputSlider = sliderVal.sink;
+    outputSlider = sliderVal.stream
+        .asBroadcastStream()
+        .map((event) => event.inSeconds.toDouble() / duration!.inSeconds.toDouble() / 1.0);
+  }
 
   void setInputOutput() {
     input = durationNow.sink;
@@ -27,12 +39,13 @@ class PlayMusic {
   // factory PlayMusic(String path) {
   //   return instance ?? PlayMusic.play(path);
   // }
-  Duration? duration;
+  
   Future<void> playSound(path) async {
     duration = await player.setAsset(path);
     inputEnd.add(duration!);
     player.positionStream.listen((event) {
       input.add(event);
+      inputSlider.add((event));
     });
     await player.play();
 

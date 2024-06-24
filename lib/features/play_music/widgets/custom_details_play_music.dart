@@ -49,7 +49,6 @@ class CustomControlsPlayMusic extends StatelessWidget {
           const SizedBox(height: 14),
           CustomSlider(
             onChanged: (val) {},
-            val: .7,
           ),
           const SizedBox(height: 6),
           const CustomDurationText(),
