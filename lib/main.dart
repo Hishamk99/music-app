@@ -13,10 +13,12 @@ void main() async {
   playMusic.setInputOutput();
   playMusic.setInputOutputEndDuration();
   playMusic.setInputOutputSlider();
+  playMusic.setStatusOfOnControl();
   runApp(const MusicApp());
 }
 
 PlayMusic playMusic = getIt.get<PlayMusic>();
+
 
 class MusicApp extends StatelessWidget {
   const MusicApp({super.key});

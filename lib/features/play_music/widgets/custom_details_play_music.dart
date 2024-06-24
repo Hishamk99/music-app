@@ -31,6 +31,7 @@ class CustomControlsPlayMusic extends StatelessWidget {
                 musicIcon: 'assets/images/music_icon/left_ellipse.png',
                 onPressed: () {
                   getNextOrPrevSong(data, false, context);
+                  playMusic.changeIcon('assets/images/music_icon/on_off.png');
                 },
               ),
               const CustomOnOffBuilder(),
@@ -38,6 +39,7 @@ class CustomControlsPlayMusic extends StatelessWidget {
                 musicIcon: 'assets/images/music_icon/right_ellipse.png',
                 onPressed: () {
                   getNextOrPrevSong(data, true, context);
+                  playMusic.changeIcon('assets/images/music_icon/on_off.png');
                 },
               ),
               CustomMusicIcon(

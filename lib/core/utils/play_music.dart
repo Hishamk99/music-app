@@ -3,15 +3,24 @@ import 'package:just_audio/just_audio.dart';
 
 class PlayMusic {
   Duration? duration;
-  //final String path;
   AudioPlayer player = AudioPlayer();
-  StreamController<Duration> durationNow = StreamController<Duration>();
-  late Sink<Duration> input;
-  late Stream<Duration> output;
 
   StreamController<Duration> durationEnd = StreamController<Duration>();
   late Sink<Duration> inputEnd;
   late Stream<Duration> outputEnd;
+
+  StreamController<String> status = StreamController<String>();
+  late Sink<String> onOffInput;
+  late Stream<String> onOffOutput;
+  setStatusOfOnControl() {
+    onOffInput = status.sink;
+    onOffOutput = status.stream.asBroadcastStream();
+  }
+
+  void changeIcon(String path) {
+    pauseAndPlaySound();
+    onOffInput.add(path);
+  }
 
   StreamController<Duration> sliderVal = StreamController<Duration>();
   late Sink<Duration> inputSlider;
@@ -23,6 +32,9 @@ class PlayMusic {
         event.inSeconds.toDouble() / duration!.inSeconds.toDouble() / 1.0);
   }
 
+  StreamController<Duration> durationNow = StreamController<Duration>();
+  late Sink<Duration> input;
+  late Stream<Duration> output;
   void setInputOutput() {
     input = durationNow.sink;
     output = durationNow.stream.asBroadcastStream();
@@ -42,11 +54,6 @@ class PlayMusic {
     double sliderNow = (value / 1.0) * duration!.inSeconds.toDouble();
     return Duration(seconds: sliderNow.toInt());
   }
-  // PlayMusic.play(this.path);
-  // static PlayMusic? instance;
-  // factory PlayMusic(String path) {
-  //   return instance ?? PlayMusic.play(path);
-  // }
 
   Future<void> playSound(path) async {
     duration = await player.setAsset(path);
@@ -56,8 +63,6 @@ class PlayMusic {
       inputSlider.add((event));
     });
     await player.play();
-
-    //return duration;
   }
 
   Future<void> pauseAndPlaySound() async {
