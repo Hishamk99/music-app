@@ -12,15 +12,15 @@ class NextPreviousSongCubit extends Cubit<NextPreviousSongState> {
 
   RecommandedModel? songDataRecommanded;
   SingerModel? songDataRecently;
-  bool isRecently = true;
+  bool isRecent = true;
   getSongData(songDataModel, isRecently) {
     if (isRecently) {
       songDataRecently = songDataModel;
-      isRecently = true;
+      isRecent = true;
       emit(NowSongRecentlyState());
     } else {
       songDataRecommanded = songDataModel;
-      isRecently = false;
+      isRecent = false;
       emit(NowSongRecommandedState());
     }
   }
@@ -38,6 +38,26 @@ class NextPreviousSongCubit extends Cubit<NextPreviousSongState> {
     } else {
       if (index == RecommandedList.recommandedList.length) {
         index = 0;
+      }
+      emit(NowSongRecommandedState());
+      songDataRecommanded = RecommandedList.recommandedList[index];
+      return songDataRecommanded;
+    }
+  }
+
+  getPrevSongData(songDataModel) {
+    int index = songDataModel.index;
+    index--;
+    if (songDataModel.isRecently) {
+      if (index == -1) {
+        index = SingerList.singersList.length - 1;
+      }
+      emit(NowSongRecentlyState());
+      songDataRecently = SingerList.singersList[index];
+      return songDataRecently;
+    } else {
+      if (index == -1) {
+        index = RecommandedList.recommandedList.length - 1;
       }
       emit(NowSongRecommandedState());
       songDataRecommanded = RecommandedList.recommandedList[index];

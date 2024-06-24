@@ -1,6 +1,6 @@
 class RecommandedModel {
   final String image;
-  final String rectangeImage;
+  final String rectangleImage;
   final String name;
   final String songName;
   final String path;
@@ -10,7 +10,7 @@ class RecommandedModel {
 
   RecommandedModel({
     required this.index,
-    required this.rectangeImage,
+    required this.rectangleImage,
     required this.image,
     required this.name,
     required this.path,

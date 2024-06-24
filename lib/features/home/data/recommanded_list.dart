@@ -8,7 +8,8 @@ class RecommandedList {
       songName: 'Magenta Riddim',
       isLiked: false,
       path: 'assets/audio/recommanded_music/magenta_riddim.mp3',
-      rectangeImage: 'assets/images/recommanded_rectange/dj_snake.jfif', index: 0,
+      rectangleImage: 'assets/images/recommanded_rectange/dj_snake.jfif',
+      index: 0,
     ),
     RecommandedModel(
       image: 'assets/images/recommanded/friends.png',
@@ -16,8 +17,8 @@ class RecommandedList {
       name: 'Anne Marie',
       isLiked: true,
       path: 'assets/audio/recommanded_music/friends.mp3',
-      rectangeImage: 'assets/images/recommanded_rectange/anne_marie.jfif',
-     index: 1,
+      rectangleImage: 'assets/images/recommanded_rectange/anne_marie.jfif',
+      index: 1,
     ),
     RecommandedModel(
       image: 'assets/images/recommanded/alone.png',
@@ -26,7 +27,7 @@ class RecommandedList {
       isLiked: true,
       index: 2,
       path: 'assets/audio/recommanded_music/alone.mp3',
-      rectangeImage: 'assets/images/recommanded_rectange/marshmello.jfif',
+      rectangleImage: 'assets/images/recommanded_rectange/marshmello.jfif',
     ),
     RecommandedModel(
       image: 'assets/images/recommanded/new_rules.png',
@@ -35,7 +36,7 @@ class RecommandedList {
       index: 3,
       isLiked: false,
       path: 'assets/audio/recommanded_music/new_rules.mp3',
-      rectangeImage: 'assets/images/recommanded_rectange/dua_lipa.jfif',
+      rectangleImage: 'assets/images/recommanded_rectange/dua_lipa.jfif',
     ),
     RecommandedModel(
       image: 'assets/images/recommanded/tailor.jfif',
@@ -44,7 +45,7 @@ class RecommandedList {
       songName: 'You Belong With Me',
       isLiked: true,
       path: 'assets/audio/recommanded_music/belong_with_me.m4a',
-      rectangeImage: 'assets/images/recommanded_rectange/taylor.jfif',
+      rectangleImage: 'assets/images/recommanded_rectange/taylor.jfif',
     ),
     RecommandedModel(
       image: 'assets/images/recommanded/sheeran.jfif',
@@ -53,7 +54,7 @@ class RecommandedList {
       index: 5,
       isLiked: false,
       path: 'assets/audio/recommanded_music/shape_of_you.mp3',
-      rectangeImage: 'assets/images/recommanded_rectange/sheeran.jfif',
+      rectangleImage: 'assets/images/recommanded_rectange/sheeran.jfif',
     ),
     RecommandedModel(
       image: 'assets/images/recommanded/maroon_5.jfif',
@@ -62,7 +63,7 @@ class RecommandedList {
       songName: 'Girls like you',
       isLiked: true,
       path: 'assets/audio/recommanded_music/girls_like_you.mp3',
-      rectangeImage: 'assets/images/recommanded_rectange/maroon.jfif',
+      rectangleImage: 'assets/images/recommanded_rectange/maroon.jfif',
     ),
     RecommandedModel(
       image: 'assets/images/recommanded/katy.jfif',
@@ -71,7 +72,7 @@ class RecommandedList {
       index: 7,
       isLiked: false,
       path: 'assets/audio/recommanded_music/dark_horse.mp3',
-      rectangeImage: 'assets/images/recommanded_rectange/katy.jfif',
+      rectangleImage: 'assets/images/recommanded_rectange/katy.jfif',
     ),
   ];
 }

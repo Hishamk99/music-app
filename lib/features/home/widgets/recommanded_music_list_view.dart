@@ -30,16 +30,16 @@ class RecommandedMusicListView extends StatelessWidget {
               );
               RecommandedModel recommandedModel = RecommandedModel(
                 index: index,
-                image: RecommandedList.recommandedList[index].rectangeImage,
+                image: RecommandedList.recommandedList[index].rectangleImage,
                 name: RecommandedList.recommandedList[index].name,
                 songName: RecommandedList.recommandedList[index].songName,
-                rectangeImage:
-                    RecommandedList.recommandedList[index].rectangeImage,
+                rectangleImage:
+                    RecommandedList.recommandedList[index].rectangleImage,
                 path: RecommandedList.recommandedList[index].path,
                 isLiked: RecommandedList.recommandedList[index].isLiked,
               );
               BlocProvider.of<NextPreviousSongCubit>(context)
-                  .getSongData(recommandedModel , false);
+                  .getSongData(recommandedModel, false);
             },
           );
         },
