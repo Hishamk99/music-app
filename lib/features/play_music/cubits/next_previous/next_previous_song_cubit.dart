@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app/features/home/data/recommanded_list.dart';
+import 'package:music_app/features/home/data/singer_list.dart';
 import 'package:music_app/features/home/models/recommanded_model.dart';
 import 'package:music_app/features/home/models/singer_model.dart';
-
 
 part 'next_previous_song_state.dart';
 
@@ -11,34 +12,36 @@ class NextPreviousSongCubit extends Cubit<NextPreviousSongState> {
 
   RecommandedModel? songDataRecommanded;
   SingerModel? songDataRecently;
+  bool isRecently = true;
   getSongData(songDataModel, isRecently) {
     if (isRecently) {
       songDataRecently = songDataModel;
+      isRecently = true;
       emit(NowSongRecentlyState());
-      return songDataRecently;
     } else {
       songDataRecommanded = songDataModel;
+      isRecently = false;
       emit(NowSongRecommandedState());
-      return songDataRecommanded;
     }
   }
 
-  // getNextSongData( songDataModel) {
-  //   SongDataModel? songData;
-  //   int index = songDataModel.index;
-  //   index++;
-  //   if (songDataModel.isRecently) {
-  //     if (index == SingerList.singersList.length) {
-  //       index = 0;
-  //     }
-  //     //  songData = SingerList.singersList[index];
-  //   } else {
-  //     if (index == RecommandedList.recommandedList.length) {
-  //       index = 0;
-  //     }
-  //     //  songData = ;
-  //   }
-
-    // return songData;
-   //}
+  getNextSongData(songDataModel) {
+    int index = songDataModel.index;
+    index++;
+    if (songDataModel.isRecently) {
+      if (index == SingerList.singersList.length) {
+        index = 0;
+      }
+      emit(NowSongRecentlyState());
+      songDataRecently = SingerList.singersList[index];
+      return songDataRecently;
+    } else {
+      if (index == RecommandedList.recommandedList.length) {
+        index = 0;
+      }
+      emit(NowSongRecommandedState());
+      songDataRecommanded = RecommandedList.recommandedList[index];
+      return songDataRecommanded;
+    }
+  }
 }

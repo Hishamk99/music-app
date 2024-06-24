@@ -13,8 +13,4 @@ class SingerModel {
     required this.songName,
     required this.path,
   });
-
-  // Future<void> disposeSound() async {
-  //   await player.dispose();
-  // }
 }
