@@ -16,7 +16,6 @@ class PlayMusic {
     input = durationNow.sink;
     output = durationNow.stream.asBroadcastStream();
   }
-  
 
   void setInputOutputEndDuration() {
     inputEnd = durationEnd.sink;
@@ -32,11 +31,11 @@ class PlayMusic {
   Future<void> playSound(path) async {
     duration = await player.setAsset(path);
     inputEnd.add(duration!);
-    await player.play();
-    
     player.positionStream.listen((event) {
       input.add(event);
     });
+    await player.play();
+
     //return duration;
   }
 

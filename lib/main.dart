@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_app/core/resources/routes.dart';
 import 'package:music_app/core/utils/play_music.dart';
+import 'package:music_app/features/play_music/cubits/next_previous/next_previous_song_cubit.dart';
 import 'core/utils/servise_locator.dart';
 import 'features/splash/screens/splash_page.dart';
 
@@ -20,13 +22,16 @@ class MusicApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'Orbitron',
+    return BlocProvider(
+      create: (context) => NextPreviousSongCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: 'Orbitron',
+        ),
+        routes: Routes.routes,
+        initialRoute: SplashPage.id,
       ),
-      routes: Routes.routes,
-      initialRoute: SplashPage.id,
     );
   }
 }

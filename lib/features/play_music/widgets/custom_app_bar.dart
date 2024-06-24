@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/utils/styles.dart';
-import 'package:music_app/features/home/models/song_data_model.dart';
 
 import 'custom_icon_button.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
-    super.key,
-    required this.songDataModel,
-  });
-  final SongDataModel songDataModel;
+  const CustomAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AppBar(

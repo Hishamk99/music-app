@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/colors.dart';
-import 'package:music_app/features/home/models/song_data_model.dart';
 import 'custom_details_play_music.dart';
 import 'custom_music_options.dart';
 import 'custom_song_image.dart';
 import 'custom_up_next.dart';
 
 class PlayMusicPageBody extends StatelessWidget {
-  const PlayMusicPageBody({super.key, required this.disposeModel});
-  final SongDataModel disposeModel;
+  const PlayMusicPageBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -23,9 +22,9 @@ class PlayMusicPageBody extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: height * .12),
-          CustomSongImage(disposeModel: disposeModel),
+          const CustomSongImage(),
           SizedBox(height: height * .02),
-          CustomControlsPlayMusic(disposeModel: disposeModel),
+          const CustomControlsPlayMusic(),
           SizedBox(height: height * .03),
           const CustomMusicOptions(),
           SizedBox(height: height * .01),
