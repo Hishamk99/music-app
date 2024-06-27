@@ -1,26 +1,34 @@
 import 'dart:async';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_app/features/play_music/models/loop_model.dart';
 
 class PlayMusic {
   Duration? duration;
   AudioPlayer player = AudioPlayer();
 
-  StreamController<bool> statusLoop = StreamController<bool>();
-  late Sink<bool> loopInput;
-  late Stream<bool> loopOutput;
+  StreamController<LoopModel> statusLoop = StreamController<LoopModel>();
+  late Sink<LoopModel> loopInput;
+  late Stream<LoopModel> loopOutput;
+  late LoopModel loopModel;
+  bool loop = false;
   setStatusOfLoop() {
     loopInput = statusLoop.sink;
     loopOutput = statusLoop.stream.asBroadcastStream();
-    loopInput.add(false);
+    loopModel = LoopModel(isLoop: false, isNext: false);
   }
 
   Future<void> loopMusic() async {
     if (player.loopMode != LoopMode.one) {
       await player.setLoopMode(LoopMode.one);
-      loopInput.add(true);
+      loop = true;
+      loopModel.isLoop = loop;
+      loopModel.isNext = false;
+      loopInput.add(loopModel);
     } else {
       await player.setLoopMode(LoopMode.off);
-      loopInput.add(false);
+      loop = false;
+      loopModel.isLoop = loop;
+      loopInput.add(loopModel);
     }
   }
 
@@ -80,7 +88,14 @@ class PlayMusic {
       inputBeginNow.add(event);
       inputSlider.add((event));
     });
+    
     await player.play();
+    player.playerStateStream.listen((event) {
+      if (!loop && event.processingState == ProcessingState.completed) {
+        loopModel.isNext = true;
+        loopInput.add(loopModel);
+      }
+    });
   }
 
   Future<void> pauseAndPlaySound() async {
