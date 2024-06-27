@@ -16,9 +16,11 @@ class CustomOnOffBuilder extends StatelessWidget {
           return CustomMusicIcon(
             musicIcon: snapshot.data ?? 'assets/images/music_icon/on_off.png',
             onPressed: () {
-              String path = 'assets/images/music_icon/on_off.png';
-              if (path == 'assets/images/music_icon/on_off.png') {
+              String path;
+              if (playMusic.player.playing) {
                 path = 'assets/images/music_icon/play.png';
+              } else {
+                path = 'assets/images/music_icon/on_off.png';
               }
               playMusic.changeIcon(path);
             },

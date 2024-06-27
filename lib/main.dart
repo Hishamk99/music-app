@@ -14,6 +14,7 @@ void main() async {
   playMusic.setInputOutputEndDuration();
   playMusic.setInputOutputSlider();
   playMusic.setStatusOfOnControl();
+  playMusic.setStatusOfLoop();
   runApp(const MusicApp());
 }
 

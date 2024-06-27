@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_app/features/home/models/recommanded_model.dart';
 import 'package:music_app/features/home/models/singer_model.dart';
 import 'package:music_app/features/play_music/cubits/next_previous/next_previous_song_cubit.dart';
 import 'package:music_app/main.dart';
 import 'custom_duration_text.dart';
+import 'custom_loop_music.dart';
 import 'custom_music_icon.dart';
 import 'custom_slider.dart';
 import 'on_off_builder.dart';
@@ -42,10 +41,7 @@ class CustomControlsPlayMusic extends StatelessWidget {
                   playMusic.changeIcon('assets/images/music_icon/on_off.png');
                 },
               ),
-              CustomMusicIcon(
-                musicIcon: 'assets/images/music_icon/again.png',
-                onPressed: () {},
-              ),
+              const CustomLoopMusic(),
             ],
           ),
           const SizedBox(height: 14),

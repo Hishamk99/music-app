@@ -5,9 +5,24 @@ class PlayMusic {
   Duration? duration;
   AudioPlayer player = AudioPlayer();
 
-  StreamController<Duration> durationEnd = StreamController<Duration>();
-  late Sink<Duration> inputEnd;
-  late Stream<Duration> outputEnd;
+  StreamController<bool> statusLoop = StreamController<bool>();
+  late Sink<bool> loopInput;
+  late Stream<bool> loopOutput;
+  setStatusOfLoop() {
+    loopInput = statusLoop.sink;
+    loopOutput = statusLoop.stream.asBroadcastStream();
+    loopInput.add(false);
+  }
+
+  Future<void> loopMusic() async {
+    if (player.loopMode != LoopMode.one) {
+      await player.setLoopMode(LoopMode.one);
+      loopInput.add(true);
+    } else {
+      await player.setLoopMode(LoopMode.off);
+      loopInput.add(false);
+    }
+  }
 
   StreamController<String> status = StreamController<String>();
   late Sink<String> onOffInput;
@@ -17,32 +32,9 @@ class PlayMusic {
     onOffOutput = status.stream.asBroadcastStream();
   }
 
-  void changeIcon(String path) {
-    pauseAndPlaySound();
+  changeIcon(String path) async {
     onOffInput.add(path);
-  }
-
-  StreamController<Duration> sliderVal = StreamController<Duration>();
-  late Sink<Duration> inputSlider;
-  late Stream<double> outputSlider;
-
-  void setInputOutputSlider() {
-    inputSlider = sliderVal.sink;
-    outputSlider = sliderVal.stream.asBroadcastStream().map((event) =>
-        event.inSeconds.toDouble() / duration!.inSeconds.toDouble() / 1.0);
-  }
-
-  StreamController<Duration> durationNow = StreamController<Duration>();
-  late Sink<Duration> input;
-  late Stream<Duration> output;
-  void setInputOutput() {
-    input = durationNow.sink;
-    output = durationNow.stream.asBroadcastStream();
-  }
-
-  void setInputOutputEndDuration() {
-    inputEnd = durationEnd.sink;
-    outputEnd = durationEnd.stream.asBroadcastStream();
+    await pauseAndPlaySound();
   }
 
   void onChangedSlider(double value) {
@@ -55,11 +47,37 @@ class PlayMusic {
     return Duration(seconds: sliderNow.toInt());
   }
 
+  StreamController<Duration> durationEnd = StreamController<Duration>();
+  late Sink<Duration> inputEnd;
+  late Stream<Duration> outputEnd;
+  void setInputOutputEndDuration() {
+    inputEnd = durationEnd.sink;
+    outputEnd = durationEnd.stream.asBroadcastStream();
+  }
+
+  StreamController<Duration> durationNow = StreamController<Duration>();
+  late Sink<Duration> inputBeginNow;
+  late Stream<Duration> outputBeginNow;
+  void setInputOutput() {
+    inputBeginNow = durationNow.sink;
+    outputBeginNow = durationNow.stream.asBroadcastStream();
+  }
+
+  StreamController<Duration> sliderVal = StreamController<Duration>();
+  late Sink<Duration> inputSlider;
+  late Stream<double> outputSlider;
+
+  void setInputOutputSlider() {
+    inputSlider = sliderVal.sink;
+    outputSlider = sliderVal.stream.asBroadcastStream().map((event) =>
+        event.inSeconds.toDouble() / duration!.inSeconds.toDouble() / 1.0);
+  }
+
   Future<void> playSound(path) async {
     duration = await player.setAsset(path);
     inputEnd.add(duration!);
     player.positionStream.listen((event) {
-      input.add(event);
+      inputBeginNow.add(event);
       inputSlider.add((event));
     });
     await player.play();

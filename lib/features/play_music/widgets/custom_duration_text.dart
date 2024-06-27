@@ -14,7 +14,7 @@ class CustomDurationText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         StreamBuilder<Duration>(
-          stream: playMusic.output,
+          stream: playMusic.outputBeginNow,
           builder: (context, snapshot) {
             return Text(
               '${snapshot.data?.inMinutes ?? '0'}:${(snapshot.data?.inSeconds ?? 0) % 60}',
