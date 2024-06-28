@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app/features/home/cubits/search_song/search_cubit.dart';
 
 import 'package:music_app/features/home/data/singer_list.dart';
 import 'package:music_app/features/home/models/singer_model.dart';
@@ -13,32 +14,44 @@ class RecentlyPlayedListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: ListView.builder(
-        itemCount: SingerList.singersList.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return CustomRecentlyPlayedSongsItem(
-            singerModel: SingerList.singersList[index],
-            onTap: () {
-              playMusic.playSound(SingerList.singersList[index].path);
+    List<SingerModel> singerList = SingerList.singersList;
+    return BlocConsumer<SearchCubit, SearchState>(
+      listener: (context, state) {
+        if (state is SearchNotExisted) {
+          singerList = SingerList.singersList;
+        } else if (state is SearchExisted) {
+          singerList = state.singerList;
+        }
+      },
+      builder: (context, state) {
+        return SizedBox(
+          height: 200,
+          child: ListView.builder(
+            itemCount: singerList.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return CustomRecentlyPlayedSongsItem(
+                singerModel: singerList[index],
+                onTap: () {
+                  playMusic.playSound(SingerList.singersList[index].path);
 
-              Navigator.pushNamed(context, PlayMusicPage.id);
+                  Navigator.pushNamed(context, PlayMusicPage.id);
 
-              SingerModel singerModel = SingerModel(
-                index: index,
-                image: SingerList.singersList[index].image,
-                name: SingerList.singersList[index].name,
-                songName: SingerList.singersList[index].songName,
-                path: SingerList.singersList[index].path,
+                  SingerModel singerModel = SingerModel(
+                    index: index,
+                    image: singerList[index].image,
+                    name: singerList[index].name,
+                    songName: singerList[index].songName,
+                    path: singerList[index].path,
+                  );
+                  BlocProvider.of<NextPreviousSongCubit>(context)
+                      .getSongData(singerModel, true);
+                },
               );
-              BlocProvider.of<NextPreviousSongCubit>(context)
-                  .getSongData(singerModel, true);
             },
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

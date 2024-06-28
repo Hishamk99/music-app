@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app/features/home/cubits/search_song/search_cubit.dart';
 import 'package:music_app/features/home/widgets/custom_buttom_navigation_bar.dart';
 import 'package:music_app/features/home/widgets/home_page_body.dart';
 
@@ -24,7 +26,10 @@ class _HomePageState extends State<HomePage> {
           },
           index: ind,
         ),
-        body: const HomePageBody(),
+        body: BlocProvider(
+          create: (context) => SearchCubit(),
+          child: const HomePageBody(),
+        ),
       ),
     );
   }

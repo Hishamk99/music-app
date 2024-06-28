@@ -8,19 +8,19 @@ part 'search_state.dart';
 class SearchCubit extends Cubit<SearchState> {
   SearchCubit() : super(SearchInitial());
 
-  List<SingerModel> getSeachedSong(String name) {
+  getSeachedSong(String name) {
     if (name.trim().isEmpty) {
       emit(SearchNotExisted());
-      return SingerList.singersList;
     }
     List<SingerModel> singerList = [];
     for (int i = 0; i < SingerList.singersList.length; i++) {
-      String nameSong = SingerList.singersList[i].name.trim().toLowerCase();
-      if (nameSong.contains(name.trim().toLowerCase())) {
+      String nameSinger = SingerList.singersList[i].name.trim().toLowerCase();
+      String nameSong = SingerList.singersList[i].songName.trim().toLowerCase();
+      if (nameSinger.contains(name.trim().toLowerCase()) ||
+          nameSong.contains(name.trim().toLowerCase())) {
         singerList.add(SingerList.singersList[i]);
       }
     }
-    emit(SearchExisted());
-    return singerList;
+    emit(SearchExisted(singerList));
   }
 }

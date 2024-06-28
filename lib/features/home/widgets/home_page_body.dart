@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_app/core/resources/colors.dart';
+import 'package:music_app/features/home/cubits/search_song/search_cubit.dart';
 import 'custom_recently_played_text.dart';
 import 'custom_text_field.dart';
 import 'recently_played_list_view.dart';
@@ -25,7 +27,7 @@ class HomePageBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: CustomTextField(
               onChanged: (String val) {
-                
+                BlocProvider.of<SearchCubit>(context).getSeachedSong(val);
               },
             ),
           ),
