@@ -21,18 +21,24 @@ class HomePageBody extends StatelessWidget {
           colors: ColorsManager.homePlayMusicGradient,
         ),
       ),
-      child: const CustomScrollView(
+      child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: 50)),
-          SliverToBoxAdapter(child: CustomTextField()),
-          SliverToBoxAdapter(child: SizedBox(height: 20)),
-          SliverToBoxAdapter(child: CustomHomeText(txt: 'RECENTLY PLAYED')),
-          SliverToBoxAdapter(child: SizedBox(height: 20)),
-          SliverToBoxAdapter(child: RecentlyPlayedListView()),
-          SliverToBoxAdapter(child: SizedBox(height: 12)),
-          SliverToBoxAdapter(child: CustomHomeText(txt: 'Recommanded music')),
-          SliverToBoxAdapter(child: SizedBox(height: 14)),
-          RecommandedMusicListView(),
+          const SliverToBoxAdapter(child: SizedBox(height: 50)),
+          SliverToBoxAdapter(
+            child: CustomTextField(
+              onChanged: (String val) {},
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 20)),
+          const SliverToBoxAdapter(child: CustomHomeText(txt: 'SEARCH SONG')),
+          const SliverToBoxAdapter(child: SizedBox(height: 20)),
+          const SliverToBoxAdapter(child: RecentlyPlayedListView()),
+          const SliverToBoxAdapter(child: SizedBox(height: 12)),
+          const SliverToBoxAdapter(
+            child: CustomHomeText(txt: 'Recommanded music'),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 14)),
+          const RecommandedMusicListView(),
         ],
       ),
     );
