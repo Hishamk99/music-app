@@ -88,7 +88,7 @@ class PlayMusic {
       inputBeginNow.add(event);
       inputSlider.add((event));
     });
-    
+
     await player.play();
     player.playerStateStream.listen((event) {
       if (!loop && event.processingState == ProcessingState.completed) {

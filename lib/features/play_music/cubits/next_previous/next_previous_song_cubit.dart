@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_app/features/home/data/recommanded_list.dart';
@@ -25,9 +27,17 @@ class NextPreviousSongCubit extends Cubit<NextPreviousSongState> {
     }
   }
 
-  getNextSongData(songDataModel) {
+  getNextSongData(songDataModel, bool isRandom) {
     int index = songDataModel.index;
-    index++;
+    if (isRandom) {
+      if (!isRecent) {
+        index = Random().nextInt(RecommandedList.recommandedList.length);
+      } else {
+        index = Random().nextInt(SingerList.singersList.length);
+      }
+    } else {
+      index++;
+    }
     if (songDataModel.isRecently) {
       if (index == SingerList.singersList.length) {
         index = 0;

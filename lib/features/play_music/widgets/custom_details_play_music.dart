@@ -24,12 +24,14 @@ class CustomControlsPlayMusic extends StatelessWidget {
             children: [
               CustomMusicIcon(
                 musicIcon: 'assets/images/music_icon/shuffle.png',
-                onPressed: () {},
+                onPressed: () {
+                  getNextOrPrevSong(data, true, context , true);
+                },
               ),
               CustomMusicIcon(
                 musicIcon: 'assets/images/music_icon/left_ellipse.png',
                 onPressed: () {
-                  getNextOrPrevSong(data, false, context);
+                  getNextOrPrevSong(data, false, context , false);
                   playMusic.changeIcon('assets/images/music_icon/on_off.png');
                 },
               ),
@@ -37,7 +39,7 @@ class CustomControlsPlayMusic extends StatelessWidget {
               CustomMusicIcon(
                 musicIcon: 'assets/images/music_icon/right_ellipse.png',
                 onPressed: () {
-                  getNextOrPrevSong(data, true, context);
+                  getNextOrPrevSong(data, true, context , false);
                   playMusic.changeIcon('assets/images/music_icon/on_off.png');
                 },
               ),
@@ -47,7 +49,7 @@ class CustomControlsPlayMusic extends StatelessWidget {
           const SizedBox(height: 14),
           CustomSlider(
             onChanged: (val) {
-            playMusic.onChangedSlider(val);
+              playMusic.onChangedSlider(val);
             },
           ),
           const SizedBox(height: 6),
@@ -57,13 +59,13 @@ class CustomControlsPlayMusic extends StatelessWidget {
     );
   }
 
-  void getNextOrPrevSong(bool data, bool isNext, BuildContext context) {
+  void getNextOrPrevSong(bool data, bool isNext, BuildContext context , bool isRandom) {
     if (data) {
       SingerModel singerModel =
           BlocProvider.of<NextPreviousSongCubit>(context).songDataRecently!;
       if (isNext) {
         playMusic.playSound(BlocProvider.of<NextPreviousSongCubit>(context)
-            .getNextSongData(singerModel)
+            .getNextSongData(singerModel , isRandom)
             .path);
       } else {
         playMusic.playSound(BlocProvider.of<NextPreviousSongCubit>(context)
@@ -76,7 +78,7 @@ class CustomControlsPlayMusic extends StatelessWidget {
 
       if (isNext) {
         playMusic.playSound(BlocProvider.of<NextPreviousSongCubit>(context)
-            .getNextSongData(recommanedModel)
+            .getNextSongData(recommanedModel,isRandom)
             .path);
       } else {
         playMusic.playSound(BlocProvider.of<NextPreviousSongCubit>(context)

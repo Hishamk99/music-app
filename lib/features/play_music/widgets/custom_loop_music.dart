@@ -26,7 +26,7 @@ class CustomLoopMusic extends StatelessWidget {
                 BlocProvider.of<NextPreviousSongCubit>(context)
                     .songDataRecently!;
             playMusic.playSound(BlocProvider.of<NextPreviousSongCubit>(context)
-                .getNextSongData(singerModel)
+                .getNextSongData(singerModel , false)
                 .path);
           } else {
             RecommandedModel recommanedModel =
@@ -34,7 +34,7 @@ class CustomLoopMusic extends StatelessWidget {
                     .songDataRecommanded!;
 
             playMusic.playSound(BlocProvider.of<NextPreviousSongCubit>(context)
-                .getNextSongData(recommanedModel)
+                .getNextSongData(recommanedModel, false)
                 .path);
           }
         }
