@@ -7,9 +7,7 @@ import 'recently_played_list_view.dart';
 import 'recommanded_music_list_view.dart';
 
 class HomePageBody extends StatelessWidget {
-  const HomePageBody({
-    super.key,
-  });
+  const HomePageBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,9 @@ class HomePageBody extends StatelessWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 50)),
           SliverToBoxAdapter(
             child: CustomTextField(
-              onChanged: (String val) {},
+              onChanged: (String val) {
+                
+              },
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 20)),
