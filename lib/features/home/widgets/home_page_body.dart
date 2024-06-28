@@ -26,6 +26,9 @@ class HomePageBody extends StatelessWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 50)),
           SliverToBoxAdapter(
             child: CustomTextField(
+              onTapOutside: (event) {
+                FocusScope.of(context).unfocus();
+              },
               onChanged: (String val) {
                 BlocProvider.of<SearchCubit>(context).getSeachedSong(val);
               },

@@ -4,14 +4,20 @@ import 'package:music_app/core/resources/colors.dart';
 import 'package:music_app/core/utils/styles.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, required this.onChanged});
+  const CustomTextField({
+    super.key,
+    required this.onChanged,
+    required this.onTapOutside,
+  });
   final void Function(String)? onChanged;
+  final void Function(PointerDownEvent)? onTapOutside;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: TextField(
         onChanged: onChanged,
+        onTapOutside: onTapOutside,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(vertical: 12),
           hintText: 'Search Song',
